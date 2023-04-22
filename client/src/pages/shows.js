@@ -4,6 +4,7 @@ import {useContext, useEffect} from "react";
 import {Context} from "@/context/AppWrapper";
 import {useRouter} from "next/router";
 import {observer} from "mobx-react-lite";
+import ShowList from "@/components/show/ShowList";
 
 const Shows = observer(() => {
     const {user, shows} = useContext(Context)
@@ -17,11 +18,7 @@ const Shows = observer(() => {
     }, [])
     return (
         <MainLayout>
-            {
-                shows.shows.map(show =>
-                    <h1 key={show.id}>{show.name}</h1>
-                )
-            }
+            <ShowList shows={shows}/>
         </MainLayout>
     );
 });

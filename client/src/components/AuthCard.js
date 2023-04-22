@@ -1,5 +1,5 @@
 import style from '../styles/AuthCard.module.css'
-import Container from "@/components/Container";
+import MyContainer from "@/components/MyContainer";
 const AuthCard = ({children}) => {
     return (
         <div className={style.card}>

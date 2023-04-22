@@ -1,12 +1,42 @@
-import '../styles/global.css'
-import {AppWrapper, Context} from "@/context/AppWrapper";
-import {useContext} from "react";
+// import '../styles/global.css'
+// import {AppWrapper} from "@/context/AppWrapper";
+//
+// // This default export is required in a new `pages/_app.js` file.
+// export default function MyApp({ Component, pageProps }) {
+//     return (
+//         <AppWrapper>
+//             <Component {...pageProps} />
+//         </AppWrapper>
+//     )
+// }
 
-// This default export is required in a new `pages/_app.js` file.
-export default function MyApp({ Component, pageProps }) {
+import * as React from 'react';
+import Head from 'next/head';
+import { ThemeProvider } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
+import { CacheProvider } from '@emotion/react';
+import theme from '../config/theme';
+import createEmotionCache from '../config/createEmotionCache';
+import {AppWrapper} from "@/context/AppWrapper";
+
+// Client-side cache, shared for the whole session of the user in the browser.
+const clientSideEmotionCache = createEmotionCache();
+
+
+export default function MyApp(props) {
+    const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
     return (
-        <AppWrapper>
-            <Component {...pageProps} />
-        </AppWrapper>
-    )
+        <CacheProvider value={emotionCache}>
+            <Head>
+                <meta name="viewport" content="initial-scale=1, width=device-width" />
+            </Head>
+            <ThemeProvider theme={theme}>
+                {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
+                <CssBaseline />
+                <AppWrapper>
+                    <Component {...pageProps} />
+                </AppWrapper>
+            </ThemeProvider>
+        </CacheProvider>
+    );
 }

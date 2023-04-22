@@ -1,4 +1,3 @@
-import Link from "next/link";
 import styles from '../styles/MyLink.module.css'
 import {useRouter} from "next/router";
 const MyLink = ({text, href}) => {

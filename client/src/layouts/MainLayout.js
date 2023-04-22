@@ -1,17 +1,16 @@
 import MyNavbar from "@/components/MyNavbar";
-import Container from "@/components/Container";
+import MyContainer from "@/components/MyContainer";
+import {Container} from "@mui/material";
 
 
 const MainLayout = ({children}) => {
     return (
-        <div>
+        <>
             <MyNavbar/>
-            <Container>
-                <div>
-                    {children}
-                </div>
+            <Container maxWidth='lg' style={{marginTop: '30px'}}>
+                {children}
             </Container>
-        </div>
+        </>
     );
 };
 

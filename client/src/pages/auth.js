@@ -5,6 +5,7 @@ import {useContext, useState} from "react";
 import AuthCard from "@/components/AuthCard";
 import {login, registration} from "@/http/userApi";
 import {useRouter} from "next/router";
+import {Box, Card, Container} from "@mui/material";
 const Auth = observer(() => {
     const {user} = useContext(Context)
     const [email, setEmail] = useState('')
@@ -32,7 +33,8 @@ const Auth = observer(() => {
 
     return (
         <MainLayout>
-                <AuthCard>
+            <Container>
+                <Card>
                     <a onClick={() => setIsReg(!isReg)}>
                         {
                             isReg ? 'Уже зарегестрированы? Войдите' : 'Нет аккаунта? Зарегистрируйтесь'
@@ -56,7 +58,8 @@ const Auth = observer(() => {
                             isReg ? 'Зарегистрироваться' : 'Войти'
                         }
                     </button>
-                </AuthCard>
+                </Card>
+            </Container>
         </MainLayout>
     );
 });

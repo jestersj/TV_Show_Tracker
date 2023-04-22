@@ -1,5 +1,5 @@
 import style from '../styles/Container.module.css'
-const Container = ({children}) => {
+const MyContainer = ({children}) => {
     return (
         <div className={style.container}>
             {children}
@@ -7,4 +7,4 @@ const Container = ({children}) => {
     );
 };
 
-export default Container;
+export default MyContainer;
