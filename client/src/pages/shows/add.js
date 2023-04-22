@@ -1,12 +1,11 @@
 import MainLayout from "@/layouts/MainLayout";
-import AuthCard from "@/components/AuthCard";
 
-const Auth = () => {
+const Add = () => {
     return (
         <MainLayout>
-            <AuthCard/>
+            asdadadasdasd
         </MainLayout>
     );
 };
 
-export default Auth;
+export default Add;

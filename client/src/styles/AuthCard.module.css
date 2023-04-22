@@ -1,7 +1,22 @@
 .card {
-    background: #212529;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     color: white;
-    width: 40vw;
-    height: 80vh;
-    margin: auto;
+    padding: 10px;
+}
+.box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+.input {
+    margin: 10px 0;
+}
+.isLog {
+    cursor: pointer;
+    color: #5a7fe0;
 }

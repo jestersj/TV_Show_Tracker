@@ -1,6 +1,5 @@
 import MyLink from "@/components/MyLink";
 import styles from '../styles/MyNavbar.module.css'
-import MyContainer from "@/components/MyContainer";
 import {Context} from "@/context/AppWrapper";
 import {observer} from "mobx-react-lite";
 import {useContext} from "react";
@@ -13,7 +12,7 @@ const MyNavbar = () => {
     return (
         <header className={styles.navbar}>
             <Container maxWidth='lg'>
-                <Grid container>
+                <Grid container spacing={4}>
                     <Grid item>
                         <MyLink text={'Главная'} href={'/'}/>
                     </Grid>
@@ -25,14 +24,22 @@ const MyNavbar = () => {
                                     <MyLink text={'Мои фильмы и сериалы'} href={'/shows'}/>
                                 </Grid>
                                 <Grid item>
-                                    <button onClick={() => {
-                                        user.setIsAuth(false)
-                                        router.push('/')
-                                    }}>Выход</button>
+                                    <MyLink text={'Добавить шоу'} href={'/shows/add'}/>
+                                </Grid>
+                                <Grid item>
+                                    <p className={styles.logout}
+                                        onClick={() => {
+                                            user.setIsAuth(false)
+                                            user.setUser({})
+                                            router.push('/')
+                                        }
+                                    }>Выход</p>
                                 </Grid>
                             </>
                             :
-                            <MyLink text={'Авторизация'} href={'/auth'}/>
+                            <Grid item>
+                                <MyLink text={'Авторизация'} href={'/auth'}/>
+                            </Grid>
                     }
                 </Grid>
             </Container>

@@ -1,5 +1,6 @@
 import ShowItem from "@/components/show/ShowItem";
 import {Grid} from "@mui/material";
+import {observer} from "mobx-react-lite";
 
 const ShowList = ({shows}) => {
     return (
@@ -15,4 +16,4 @@ const ShowList = ({shows}) => {
     );
 };
 
-export default ShowList;
+export default observer(ShowList);
