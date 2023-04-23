@@ -5,8 +5,9 @@ import {Context} from "@/context/AppWrapper";
 import {useRouter} from "next/router";
 import {login, registration} from "@/http/userApi";
 import {observer} from "mobx-react-lite";
+import {fetchAll} from "@/http/showApi";
 const AuthCard = () => {
-    const {user} = useContext(Context)
+    const {user, shows} = useContext(Context)
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [isLog, setIsLog] = useState(true)
@@ -16,7 +17,7 @@ const AuthCard = () => {
         try {
             let data
             if (isLog) {
-                data = (await login(email, password))
+                data = await login(email, password)
             } else {
                 data = await registration(email, password)
             }
@@ -24,6 +25,7 @@ const AuthCard = () => {
             user.setIsAuth(true)
             user.setToken(data.token)
             localStorage.setItem('token', data.token)
+            await fetchAll().then((data) => shows.setShows(data))
             await router.push('/')
         } catch (e) {
             alert(e.response.data.message)

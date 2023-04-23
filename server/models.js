@@ -1,5 +1,5 @@
 const sequelize = require('./db')
-const {DataTypes, UUIDV4} = require('sequelize')
+const {DataTypes} = require('sequelize')
 
 const User = sequelize.define('user', {
     id: {type: DataTypes.INTEGER, autoIncrement: true, primaryKey:true},
@@ -9,9 +9,9 @@ const User = sequelize.define('user', {
 const Show = sequelize.define('show', {
     id: {type: DataTypes.INTEGER, autoIncrement: true, primaryKey:true},
     name: {type: DataTypes.STRING, unique: true},
+    description: {type: DataTypes.STRING(1000)},
     img: {type: DataTypes.STRING},
     rating: {type: DataTypes.INTEGER},
-    episode: {type: DataTypes.INTEGER}
 })
 
 User.hasMany(Show)

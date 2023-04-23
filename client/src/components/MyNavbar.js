@@ -7,7 +7,7 @@ import {useRouter} from "next/router";
 import {Container, Grid} from "@mui/material";
 
 const MyNavbar = () => {
-    const {user} = useContext(Context)
+    const {user, shows} = useContext(Context)
     const router = useRouter()
     return (
         <header className={styles.navbar}>
@@ -31,6 +31,7 @@ const MyNavbar = () => {
                                         onClick={() => {
                                             user.setIsAuth(false)
                                             user.setUser({})
+                                            shows.setShows([])
                                             router.push('/')
                                         }
                                     }>Выход</p>

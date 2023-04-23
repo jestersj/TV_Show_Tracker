@@ -9,10 +9,10 @@ class ShowService {
     async fetchOne(userId, id) {
         return await Show.findOne({where: {userId, id}})
     }
-    async add(userId, name, rating, episode, img) {
+    async add(userId, name, rating, img, description) {
         let fileName = uuid.v4() + '.jpg'
         await img.mv(resolve(__dirname, '..', 'static', fileName))
-        return await Show.create({name, episode, rating, img: fileName, userId})
+        return await Show.create({name, rating, description, img: fileName, userId})
     }
 }
 

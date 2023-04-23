@@ -1,4 +1,4 @@
-import {Card, Grid} from "@mui/material";
+import {Card, Rating} from "@mui/material";
 import Image from "next/image";
 import style from '../../styles/ShowItem.module.css'
 import {useRouter} from "next/router";
@@ -16,7 +16,12 @@ const ShowItem = ({show}) => {
                 width={200}
                 height={267}
             />
-            {show.name}
+            <h3>{show.name}</h3>
+            <Rating
+                readOnly
+                defaultValue={show.rating}
+                max={10}
+            />
         </Card>
     );
 };

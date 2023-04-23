@@ -13,9 +13,9 @@ class ShowController {
     }
     async add(req, res) {
         const userId = req.user.id
-        const {name, rating, episode} = req.body
+        const {name, rating, description} = req.body
         const {img} = req.files
-        const show = await ShowService.add(userId, name, rating, episode, img)
+        const show = await ShowService.add(userId, name, rating, img, description)
         return res.json(show)
     }
 }
