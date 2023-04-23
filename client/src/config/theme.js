@@ -9,6 +9,12 @@ const theme = createTheme({
         secondary: {
             main: '#212529',
         },
+        red: {
+            main: '#a20404'
+        },
+        green: {
+            main: '#249a0d'
+        },
         error: {
             main: red.A400,
         },

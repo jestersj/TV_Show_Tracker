@@ -33,6 +33,7 @@ const MyNavbar = () => {
                                             user.setUser({})
                                             shows.setShows([])
                                             router.push('/')
+                                            localStorage.removeItem('token')
                                         }
                                     }>Выход</p>
                                 </Grid>

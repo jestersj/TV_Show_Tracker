@@ -18,6 +18,12 @@ class ShowController {
         const show = await ShowService.add(userId, name, rating, img, description)
         return res.json(show)
     }
+    async delete(req, res) {
+        const userId = req.user.id
+        const {id} = req.params
+        const show = await ShowService.delete(userId, id)
+        return res.json(show)
+    }
 }
 
 module.exports = new ShowController()

@@ -14,11 +14,13 @@ const Shows = observer(() => {
     useEffect(() => {
         if (!user.isAuth) {
             router.push('/')
+        } else {
+            fetchAll().then((data) => shows.setShows(data))
         }
     }, [])
     return (
         <MainLayout>
-            <h3>Всего {shows.shows.length} произведений</h3>
+            <h3>Всего произведений: {shows.shows.length}</h3>
             <Grid container className={style.container}>
                 <Grid item xs={2}>
                     <h3>Сортировать по:</h3>
