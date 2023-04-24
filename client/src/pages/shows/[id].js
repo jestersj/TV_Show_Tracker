@@ -1,4 +1,4 @@
-import React, {useContext, useEffect} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import MainLayout from "@/layouts/MainLayout";
 import {useRouter} from "next/router";
 import {deleteShow, fetchOne} from "@/http/showApi";
@@ -7,13 +7,19 @@ import {observer} from "mobx-react-lite";
 import {Container, Grid, Rating, Button} from "@mui/material";
 import style from '../../styles/[id]Show.module.css'
 import Image from "next/image";
+import EditModal from "@/components/show/EditModal";
 
 const ShowPage = () => {
     const {query} = useRouter()
     const router = useRouter()
     const {shows} = useContext(Context)
+    const [isOpen, setIsOpen] = useState(false)
+
     useEffect(() => {
-        fetchOne(query.id).then((data) => shows.setShows([data]))
+        fetchOne(query.id).then((data) => {
+            shows.setShows([data])
+        })
+
     }, [])
     return (
         <MainLayout>
@@ -35,7 +41,7 @@ const ShowPage = () => {
                         <h3>Рейтинг</h3>
                         <Rating
                             readOnly
-                            defaultValue={shows.shows[0].rating}
+                            value={shows.shows[0].rating}
                             max={10}
                         />
                         <Grid container className={style.buttonGroup}>
@@ -43,6 +49,7 @@ const ShowPage = () => {
                                 <Button
                                     variant='outlined'
                                     color='green'
+                                    onClick={() => setIsOpen(true)}
                                 >
                                     Редактировать
                                 </Button>
@@ -51,7 +58,7 @@ const ShowPage = () => {
                                 <Button
                                     variant='outlined'
                                     color='red'
-                                    onClick={() => deleteShow(query.id).then(router.push('/shows'))}
+                                    onClick={() => deleteShow(query.id).then(() => router.push('/shows'))}
                                 >
                                     Удалить
                                 </Button>
@@ -60,6 +67,9 @@ const ShowPage = () => {
                     </Grid>
                 </Grid>
             </Container>
+            <EditModal open={isOpen}
+                       handleClose={() => setIsOpen(false)}
+            />
         </MainLayout>
     );
 };

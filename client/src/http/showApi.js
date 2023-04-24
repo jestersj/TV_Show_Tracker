@@ -15,6 +15,11 @@ export async function addShow(show) {
     return data
 }
 
+export async function editShow(id,show) {
+    const {data} = await $authHost.put('show/' + id, show)
+    return data
+}
+
 export async function deleteShow(id) {
     const {data} = await $authHost.delete('show/' + id)
     return data

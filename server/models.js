@@ -8,7 +8,7 @@ const User = sequelize.define('user', {
 })
 const Show = sequelize.define('show', {
     id: {type: DataTypes.INTEGER, autoIncrement: true, primaryKey:true},
-    name: {type: DataTypes.STRING, unique: true},
+    name: {type: DataTypes.STRING},
     description: {type: DataTypes.STRING(1000)},
     img: {type: DataTypes.STRING},
     rating: {type: DataTypes.INTEGER},
