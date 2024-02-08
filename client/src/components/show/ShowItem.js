@@ -1,7 +1,7 @@
 import {Card, Rating} from "@mui/material";
 import Image from "next/image";
-import style from '../../styles/ShowItem.module.css'
 import {useRouter} from "next/router";
+import style from '../../styles/ShowItem.module.css';
 
 const ShowItem = ({show}) => {
     const router = useRouter()

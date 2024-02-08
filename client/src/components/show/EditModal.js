@@ -2,9 +2,9 @@ import {useContext, useEffect, useState} from "react";
 import {useRouter} from "next/router";
 import {editShow} from "@/http/showApi";
 import {Box, Button, Card, Container, Modal, Rating, TextField} from "@mui/material";
-import style from "@/styles/AddShow.module.css";
 import {Context} from "@/context/AppWrapper";
 import {observer} from "mobx-react-lite";
+import style from "@/styles/AddShow.module.css";
 
 const EditModal = ({open, handleClose}) => {
     const {shows} = useContext(Context)

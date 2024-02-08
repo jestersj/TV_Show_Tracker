@@ -1,9 +1,9 @@
 import MainLayout from "@/layouts/MainLayout";
 import {Box, Button, Card, Container, Rating, TextField} from "@mui/material";
-import style from "@/styles/AddShow.module.css";
 import {useState} from "react";
 import {addShow} from "@/http/showApi";
 import {useRouter} from "next/router";
+import style from "@/styles/AddShow.module.css";
 
 const Add = () => {
     const [name, setName] = useState('')
@@ -18,7 +18,7 @@ const Add = () => {
         formData.append('description', description)
         formData.append('rating', `${rating}`)
         formData.append('img', file)
-        addShow(formData).then((data) => router.push('/shows'))
+        addShow(formData).then(() => router.push('/shows'))
     }
 
     return (

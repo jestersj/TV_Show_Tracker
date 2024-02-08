@@ -6,7 +6,7 @@ import {useRouter} from "next/router";
 import {observer} from "mobx-react-lite";
 import ShowList from "@/components/show/ShowList";
 import {Button, ButtonGroup, Grid} from "@mui/material";
-import style from '../styles/ShowPage.module.css'
+import style from '../styles/ShowPage.module.css';
 
 const Shows = observer(() => {
     const {user, shows} = useContext(Context)

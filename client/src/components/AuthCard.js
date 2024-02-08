@@ -1,11 +1,11 @@
-import style from '../styles/AuthCard.module.css'
 import {Box, Button, Card, Container, TextField} from "@mui/material";
 import {useContext, useState} from "react";
 import {Context} from "@/context/AppWrapper";
 import {useRouter} from "next/router";
 import {login, registration} from "@/http/userApi";
 import {observer} from "mobx-react-lite";
-import {fetchAll} from "@/http/showApi";
+import style from '../styles/AuthCard.module.css';
+
 const AuthCard = () => {
     const {user} = useContext(Context)
     const [email, setEmail] = useState('')

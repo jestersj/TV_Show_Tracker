@@ -1,10 +1,10 @@
 import MyLink from "@/components/MyLink";
-import styles from '../styles/MyNavbar.module.css'
 import {Context} from "@/context/AppWrapper";
 import {observer} from "mobx-react-lite";
 import {useContext} from "react";
 import {useRouter} from "next/router";
 import {Container, Grid} from "@mui/material";
+import styles from '../styles/MyNavbar.module.css';
 
 const MyNavbar = () => {
     const {user, shows} = useContext(Context)

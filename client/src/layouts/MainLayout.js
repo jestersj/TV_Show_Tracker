@@ -1,5 +1,4 @@
 import MyNavbar from "@/components/MyNavbar";
-import MyContainer from "@/components/MyContainer";
 import {Container} from "@mui/material";
 
 

@@ -5,9 +5,9 @@ import {deleteShow, fetchOne} from "@/http/showApi";
 import {Context} from "@/context/AppWrapper";
 import {observer} from "mobx-react-lite";
 import {Container, Grid, Rating, Button} from "@mui/material";
-import style from '../../styles/[id]Show.module.css'
 import Image from "next/image";
 import EditModal from "@/components/show/EditModal";
+import style from '../../styles/[id]Show.module.css';
 
 const ShowPage = () => {
     const {query} = useRouter()
